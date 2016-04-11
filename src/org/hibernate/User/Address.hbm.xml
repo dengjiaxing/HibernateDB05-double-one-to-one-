@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-11 14:02:00 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.hibernate.User.Address" table="address">
+        <id name="addressid" type="int">
+            <column name="addressid" />
+            <generator class="foreign" ><!--一对一映射中，使用另一个相关联的实体的标识属性  -->
+            <param name="property">user</param>
+            </generator>
+        </id>
+        <property name="addressinfo" type="java.lang.String">
+            <column name="addressinfo" />
+        </property>
+        <!-- 映射关联属性user。constrained="true"表示在address表中存在一个外建约束 -->
+        <one-to-one name="user" class="org.hibernate.User.User" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

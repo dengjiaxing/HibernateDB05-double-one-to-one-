@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-11 14:02:00 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.hibernate.User.User" table="user">
+        <id name="userid" type="int">
+            <column name="userid" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" />
+        </property>
+        <one-to-one name="address" class="org.hibernate.User.Address" cascade="all"></one-to-one>
+    </class>
+</hibernate-mapping>
